@@ -1,6 +1,6 @@
 package com.library.onlinelibrary.service;
 
-import com.library.onlinelibrary.controller.DTO.BookRequest;
+import com.library.onlinelibrary.controller.DTO.BookDTO;
 import com.library.onlinelibrary.model.Book;
 import com.library.onlinelibrary.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,14 +23,18 @@ public class BookService {
         return bookRepository.findAll();
     }
 
-    public Book addBook(BookRequest bookRequest) {
+    public Book addBook(BookDTO bookDTO) {
         Book book = new Book();
-        book.setAuthor(bookRequest.getAuthor());
-        book.setTitle(bookRequest.getTitle());
+        book.setAuthor(bookDTO.getAuthor());
+        book.setTitle(bookDTO.getTitle());
         book.setStock(1);
         book.setAvailable(true);
         bookRepository.save(book);
         return book;
+    }
+
+    public void updateBook(Book book) {
+        bookRepository.save(book);
     }
 
     public Optional<Book> getBookById(Long bookId) {

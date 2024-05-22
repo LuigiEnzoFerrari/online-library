@@ -3,7 +3,7 @@ CREATE TABLE book (
     title VARCHAR(255) NOT NULL,
     author VARCHAR(255) NOT NULL,
     available BOOLEAN NOT NULL DEFAULT TRUE,
-    stock INT NOT NULL
+    stock INT NOT NULL DEFAULT 1
 );
 
 CREATE TABLE users (
@@ -14,18 +14,18 @@ CREATE TABLE users (
 
 CREATE TABLE reservation (
     id SERIAL PRIMARY KEY,
-    userId INT NOT NULL,
-    bookId INT NOT NULL,
-    FOREIGN KEY (userId) REFERENCES users(id),
-    FOREIGN KEY (bookId) REFERENCES book(id)
+    userid INT NOT NULL,
+    bookid INT NOT NULL,
+    FOREIGN KEY (userid) REFERENCES users(id),
+    FOREIGN KEY (bookid) REFERENCES book(id)
 );
 
 CREATE TABLE review (
     id SERIAL PRIMARY KEY,
-    userId INT NOT NULL,
-    bookId INT NOT NULL,
-    reviews VARCHAR(255),
-    FOREIGN KEY (userId) REFERENCES users(id),
-    FOREIGN KEY (bookId) REFERENCES book(id)
+    userid INT NOT NULL,
+    bookid INT NOT NULL,
+    review VARCHAR(255),
+    FOREIGN KEY (userid) REFERENCES users(id),
+    FOREIGN KEY (bookid) REFERENCES book(id)
 );
 

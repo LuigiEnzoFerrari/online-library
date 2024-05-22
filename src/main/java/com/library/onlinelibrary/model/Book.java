@@ -46,6 +46,17 @@ public class Book {
         this.stock = stock;
     }
 
+    public void addStock() {
+        this.setStock(this.stock + 1);
+    }
+
+    public void removeStock() {
+        this.setStock(this.stock - 1);
+        if (this.stock == 0) {
+            this.setAvailable(false);
+        }
+    }
+
     public void setAvailable(Boolean available) {
         this.available = available;
     }
@@ -57,4 +68,6 @@ public class Book {
     public void setTitle(String title) {
         this.title = title;
     }
+
+
 }

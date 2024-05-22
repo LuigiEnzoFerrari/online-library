@@ -1,9 +1,8 @@
 package com.library.onlinelibrary.controller.DTO;
 
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 
-public class BookRequest {
+public class BookDTO {
 
     @NotBlank(message = "Cannot be empty")
     private String title;
